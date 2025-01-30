@@ -1,0 +1,49 @@
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #f4f4f4;
+    padding: 15px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .sidebar h3 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .sidebar .react-calendar {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+  }
+  
+  /* Highlighting dates with events */
+  .react-calendar .highlighted-date {
+    background-color: #ff6347 !important;
+    color: white;
+    border-radius: 50%;
+  }
+  
+  .react-calendar .highlighted-date:hover {
+    background-color: #ff4500 !important;
+  }
+  
+  /* Content Styles */
+  .content {
+    margin-right: 270px; /* To prevent content being hidden behind the sidebar */
+    padding: 20px;
+  }
+  
+  .events-list .event-card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  

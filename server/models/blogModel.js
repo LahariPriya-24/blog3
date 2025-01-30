@@ -14,10 +14,6 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    thumbnail: {
-        type: String,
-        required: true,
-    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "users", // Changed to "ref"

@@ -1,0 +1,6 @@
+.event-card-image {
+    width: 100%;          /* Set the width to 100% of the parent container */
+    height: 200px;        /* Fixed height for consistency */
+    object-fit: cover;    /* Ensure the image maintains its aspect ratio and covers the area */
+  }
+  

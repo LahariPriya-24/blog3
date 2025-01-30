@@ -43,15 +43,15 @@ const AddBlog = () => {
     try {
       const res = await axios.post("http://localhost:9001/api/v1/upload", formData, {
         headers: {
-          "Content-Type": "multipart/form-data",  // Make sure this header is set
+          "Content-Type": "multipart/form-data",  // Ensure this header is set
         },
       });
-      
-      if (res.data && res.data.fileUrl) {
-        setUploadedFileUrl(res.data.filePath); // Assuming the response contains the file URL
+
+      if (res.data && res.data.filePath) {
+        setUploadedFileUrl(res.data.filePath); // Update file URL from response
         alert("File uploaded successfully!");
       } else {
-        throw new Error("No file URL received from the server");
+        throw new Error("No file path received from the server");
       }
     } catch (error) {
       console.error("Error uploading file:", error);

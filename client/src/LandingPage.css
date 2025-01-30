@@ -1,0 +1,62 @@
+/* LandingPage.css */
+.landing-page-container {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .landing-header {
+    background-color: #007bff;
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+  }
+  
+  .app-title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .app-description {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .about-section {
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  .about-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .about-section p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .call-to-action {
+    margin-top: 40px;
+  }
+  
+  .call-to-action h3 {
+    font-size: 1.5rem;
+  }
+  
+  .call-to-action .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .call-to-action .btn:hover {
+    background-color: #218838;
+  }
+  

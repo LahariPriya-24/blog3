@@ -1,49 +1,39 @@
-import blogModel from "../models/blogModel.js";
+import jwt from "jsonwebtoken";
+import authModel from "../models/authModel.js";
 
-class BlogController {
-    static getAllBlogs = async (req, res) => {
-        try {
-            const fetchAllBlogs = await blogModel.find({ user: req.user._id });
-            return res.status(200).json(fetchAllBlogs);
-        } catch (error) {
-            return res.status(400).json({ message: error.message });
-        }
-    };
+const checkIsUserAuthenticated = async (req, res, next) => {
+  let token;
+  const { authorization } = req.headers;
 
-    static addNewBlog = async (req, res) => {
-        const { title, category, description } = req.body;
-        try {
-            if (title && category && description) {
-                const addBlog = new blogModel({
-                    title,
-                    description,
-                    category,
-                    thumbnail: req.file.filename, // Use filename from multer
-                    user: req.user._id,
-                });
-                const savedBlog = await addBlog.save();
-                return res.status(200).json({ message: "Blog Added Successfully" });
-            } else {
-                return res.status(400).json({ message: "All fields are required" });
-            }
-        } catch (error) {
-            return res.status(400).json({ message: error.message });
-        }
-    };
+  // Check if the authorization header exists and starts with "Bearer"
+  if (authorization && authorization.startsWith("Bearer")) {
+    try {
+      // Get the token from the authorization header
+      token = authorization.split(" ")[1];
 
-    static getSingleBlog = async (req, res) => {
-        const { id } = req.params;
-        try {
-            if (id) {
-                const fetchBlogsById = await blogModel.findById(id);
-                return res.status(200).json(fetchBlogsById);
-            } else {
-                return res.status(400).json({ message: "Invalid URL" });
-            }
-        } catch (error) {
-            return res.status(400).json({ message: error.message });
-        }
-    };
-}
+      // Verify and decode the token using the JWT secret stored in environment variables
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-export default BlogController;
+      // Find the user by ID, excluding the password field
+      req.user = await authModel.findById(decoded.userID).select("-password");
+
+      // If user is found, move to the next middleware or route handler
+      if (!req.user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      next();
+    } catch (error) {
+      // Handle specific JWT verification errors (expired token, invalid token, etc.)
+      if (error.name === "TokenExpiredError") {
+        return res.status(401).json({ message: "Token has expired" });
+      } else {
+        return res.status(401).json({ message: "Unauthorized: Invalid or malformed token" });
+      }
+    }
+  } else {
+    return res.status(401).json({ message: "Unauthorized: No token provided" });
+  }
+};
+
+export default checkIsUserAuthenticated;
