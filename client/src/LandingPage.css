@@ -1,62 +1,172 @@
-/* LandingPage.css */
-.landing-page-container {
-    text-align: center;
-    padding: 50px 20px;
+/* General Page Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Full-page Background */
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(20deg, #f9dbcd, #fcf4f5);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 0 15px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Flexbox Layout for Content */
+.parentDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Text Section */
+.text-container {
+  padding-right: 30px;
+  animation: fadeIn 1s ease-out;
+  margin-bottom: 30px; /* Added bottom margin */
+}
+
+.welcome-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  animation: slideInLeft 1s ease-out;
+  line-height: 1.2;
+}
+
+.description p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.cta-container {
+  margin-top: 30px;
+}
+
+.cta-container h3 {
+  font-size: 1.7rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Explore Button */
+.explore-btn {
+  background-color: #f46f1c;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.explore-btn:hover {
+  background-color: #ff004f;
+  transform: translateY(-4px);
+}
+
+/* Image Section */
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  animation: fadeIn 1s ease-out;
+}
+
+.image-style {
+  border-radius: 12px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.image-style:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .landing-header {
-    background-color: #007bff;
-    color: white;
-    padding: 40px;
-    border-radius: 8px;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .app-title {
-    font-size: 3rem;
-    font-weight: bold;
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
   }
-  
-  .app-description {
-    font-size: 1.2rem;
-    margin-top: 10px;
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .about-section {
-    margin-top: 30px;
-    padding: 20px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .text-container {
+    padding-right: 0;
+    margin-bottom: 0;
   }
-  
-  .about-section h2 {
+
+  .welcome-text {
     font-size: 2rem;
-    font-weight: bold;
+    margin-bottom: 15px;
   }
-  
-  .about-section p {
-    font-size: 1.1rem;
-    color: #555;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .call-to-action {
-    margin-top: 40px;
-  }
-  
-  .call-to-action h3 {
-    font-size: 1.5rem;
-  }
-  
-  .call-to-action .btn {
-    margin-top: 20px;
-    padding: 10px 20px;
+
+  .description p {
     font-size: 1rem;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+    margin-bottom: 15px;
   }
-  
-  .call-to-action .btn:hover {
-    background-color: #218838;
+
+  .cta-container h3 {
+    font-size: 1.4rem;
   }
-  
+
+  .explore-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .image-container {
+    margin-top: 20px;
+  }
+
+  .image-style {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-text {
+    font-size: 1.8rem;
+  }
+
+  .description p {
+    font-size: 0.9rem;
+  }
+}

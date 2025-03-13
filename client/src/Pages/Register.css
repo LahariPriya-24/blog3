@@ -1,0 +1,95 @@
+/* Full-page background */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(20deg, #fdc5ab, #fcf4f5); /* Lighter shades of orange and red */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Card styling */
+  .register-card {
+    width: 500px; /* Reduced width */
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Hover effect on the card */
+  .register-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Form spacing */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Input fields */
+  .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #ff0080;
+    outline: none;
+  }
+  
+  /* Styled button */
+  .btn-primary {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f46f1c, #ff004f); /* Gradient background */
+    color: white;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(244, 111, 28, 0.3);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(90deg, #ff004f, #f46f1c); /* Reversed gradient on hover */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(244, 111, 28, 0.5);
+  }
+  
+  .btn-primary:active {
+    background: linear-gradient(90deg, #f46f1c, #ff004f); /* Reset to original gradient on click */
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(244, 111, 28, 0.3);
+  }
+  
+  /* Sign-up link */
+  .register-link {
+    color: #1976D2;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  
+  .register-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .register-card {
+      width: 90%; /* Make card more responsive on small screens */
+    }
+  }
+  

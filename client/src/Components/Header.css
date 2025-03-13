@@ -1,0 +1,134 @@
+/* Navbar styles */
+.custom-navbar {
+    background-color: transparent;
+    
+
+    padding: 10px 20px;
+    box-shadow: #424141;
+}
+
+.navbar-brand {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: black;
+}
+
+.navbar-nav .nav-link {
+    color: black;
+    font-size: 1.2em;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.navbar-nav .nav-link .nav-icon {
+    margin-right: 8px;
+    font-size: 1.4em;
+}
+
+.nav-link:hover {
+    color: #555;
+}
+
+/* Button styles */
+.btn-light {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+    background: white;
+    border: 1px solid #ddd;
+    color: black;
+}
+
+.welcome-btn {
+    background: #f5f5f5;
+    color: black;
+}
+
+.logout-btn {
+    background: #f46f1c;
+    color: white;
+}
+
+/* Updated Login Button */
+.login-btn {
+    background: #f46f1c; /* Updated color */
+    color: #f46f1c;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(244, 111, 28, 0.4);
+}
+
+.login-btn:hover {
+    background: #d95c17; /* Darker orange on hover */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(244, 111, 28, 0.6);
+}
+
+.login-btn:active {
+    background: #bf5014; /* Even darker shade on click */
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(244, 111, 28, 0.4);
+}
+
+/* Updated Register Button */
+.register-btn {
+    background: #ff004f; /* Updated color */
+    color:#ff004f;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(255, 0, 79, 0.4);
+}
+
+.register-btn:hover {
+    background: #d60044; /* Darker red-pink on hover */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(255, 0, 79, 0.6);
+}
+
+.register-btn:active {
+    background: #b8003a; /* Even darker shade on click */
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(255, 0, 79, 0.4);
+}
+
+/* Hover effect */
+.btn-light:hover {
+    transform: scale(1.05);
+    border-color: #bbb;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.me-2 {
+    margin-right: 20px;
+}
+
+/* Fixing layout for icons and text */
+.navbar-nav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.navbar-nav .nav-link .nav-icon {
+    margin-right: 8px;
+}
+.btn btn-light me-2 welcome-btn{
+    background: linear-gradient(90deg, #f46f1c, #ff004f);
+}

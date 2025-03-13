@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { FaEnvelope, FaLock } from "react-icons/fa"; // Import icons
+import "./Login.css"; // Import custom styles
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,71 +15,65 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:9001/api/v1/user/login",
+        "http://localhost:9001/api/v1/user/login", // Adjust this according to your backend URL
         input
       );
       alert(res.data.message);
-      localStorage.setItem("token",res.data.token);
-      localStorage.setItem("username",res.data.name);
-      navigate("/");
+      // Save token, username, and role in localStorage
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.name);
+      localStorage.setItem("role", res.data.role);  // Store role
+      navigate("/");  // Redirect to the homepage
       console.log(res.data);
-    } catch(error){
+    } catch (error) {
       alert(error.response.data.message);
     }
   };
 
-      
-  
-
   return (
-    <>
-      <div className="container shadow">
-        <h2 className="text-center my-3">Log into your Account</h2>
-        <div className="col-md-12 my-3 d-flex items-center justify-content-center">
-          <div className="row">
-            <form onSubmit={handleLogin}>
-              <div className="mb-3">
-                <label htmlFor="emailInput" className="form-label">
-                  Email
-                </label>
-                <input
-                  type="email" // Corrected: Use 'email' for email input
-                  name="email"
-                  value={input.email}
-                  onChange={(e) =>
-                    setInput({ ...input, [e.target.name]: e.target.value })
-                  }
-                  className="form-control"
-                  placeholder="Enter Email"
-                  id="emailInput"
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="passwordInput" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password" // Corrected: Use 'password' for password input
-                  name="password"
-                  value={input.password}
-                  onChange={(e) =>
-                    setInput({ ...input, [e.target.name]: e.target.value })
-                  }
-                  className="form-control"
-                  placeholder="Enter Password"
-                  id="passwordInput"
-                />
-              </div>
-              <div className="mb-3">
-                <button type="submit" className="btn btn-primary btn-block">
-                  Login
-                </button>
-              </div>
-            </form>
+    <div className="login-container">
+      <div className="login-card shadow-lg">
+        <h2 className="text-center mb-4">Welcome Back</h2>
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="emailInput">
+              <FaEnvelope className="input-icon" /> Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={input.email}
+              onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
+              className="form-control"
+              placeholder="Enter your email"
+              id="emailInput"
+              required
+            />
           </div>
-        </div>
+          <div className="form-group">
+            <label htmlFor="passwordInput">
+              <FaLock className="input-icon" /> Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={input.password}
+              onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
+              className="form-control"
+              placeholder="Enter your password"
+              id="passwordInput"
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary btn-block">
+            Login
+          </button>
+        </form>
+        <p className="text-center mt-3">
+          Don't have an account? <a href="/register" className="register-link">Sign up</a>
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 
