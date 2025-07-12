@@ -7,8 +7,13 @@ const Register = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState({
     username: "",
+    dob: "",
     email: "",
+    phone: "",
+    photo: "",
+    location: "",
     password: "",
+
   });
 
   const handleSubmit = async (e) => {
@@ -47,6 +52,20 @@ const Register = () => {
               placeholder="Enter Name"
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="username" className="form-label">
+              Date of birth
+            </label>
+            <input
+              type="date"
+              name="dob"
+              value={input.dob}
+              onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
+              className="form-control"
+              id="dob"
+              placeholder="Enter your date of birth"
+            />
+          </div>
 
           <div className="form-group">
             <label htmlFor="email" className="form-label">
@@ -62,6 +81,34 @@ const Register = () => {
               placeholder="Enter Email"
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="phone" className="form-label">
+              Phone
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={input.phone}
+              onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
+              className="form-control"
+              id="phone"
+              placeholder="Enter phone number"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="photo" className="form-label">
+              Upload Photo
+            </label>
+            <input
+              type="file"
+              name="photo"
+              accept="image/*"
+              onChange={(e) => setInput({ ...input, photo: e.target.files[0] })}
+              className="form-control"
+              id="photo"
+            />
+          </div>
+
 
           <div className="form-group">
             <label htmlFor="password" className="form-label">
